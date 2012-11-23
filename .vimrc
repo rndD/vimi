@@ -485,7 +485,7 @@
         vnoremap <silent> <Leader>c :s/\v\C(([a-z]+)([A-Z]))/\2_\l\3/g<CR>
 
     " Double space to ". "
-        imap <Space><Space> . 
+        "imap <Space><Space> . 
 
     " Fix Trailing White Space
         map <leader>ts :%s/\s\+$//e<CR>
