@@ -1,7 +1,7 @@
 "=============================================================================
-" Description: Vimi bundle .vimrc
+" Description: form of Vimi bundle .vimrc
 " Author: Vyacheslav Oliyanchuk <miripiruni@gmail.com>
-" URL: http://github.com/miripiruni/vimi/
+" URL: http://github.com/rndD/vimi/
 "=============================================================================
 
 " Vundle setup
@@ -37,7 +37,7 @@
         "Bundle 'git://github.com/miripiruni/vimi-snippets.git'
         Bundle 'git://github.com/mileszs/ack.vim.git'
         Bundle 'git://github.com/scrooloose/nerdcommenter.git'
-        "Bundle 'git://github.com/tpope/vim-surround.git'
+        Bundle 'git://github.com/tpope/vim-surround.git'
         "Bundle 'git://github.com/tpope/vim-fugitive.git'
         "Bundle 'git://github.com/tsaleh/vim-align.git'
         "Bundle 'git://github.com/vim-scripts/bufexplorer.zip.git'
@@ -49,7 +49,7 @@
         "Bundle 'git://github.com/slack/vim-fuzzyfinder.git'
         Bundle 'git://github.com/vim-scripts/vimwiki.git'
         Bundle 'git://github.com/scrooloose/syntastic.git'
-        Bundle 'git://github.com/vim-scripts/TaskList.vim.git'
+        "Bundle 'git://github.com/vim-scripts/TaskList.vim.git'
     " Lua
         "Bundle 'git://github.com/vim-scripts/lua.vim.git'
         "Bundle 'git://github.com/rkowal/Lua-Omni-Vim-Completion.git'
@@ -78,7 +78,7 @@
         Bundle 'git://github.com/vim-scripts/php.vim--Garvin.git'
         Bundle 'git://github.com/2072/PHP-Indenting-for-VIm.git'
     " Python/Django
-        "Bundle 'git://github.com/fs111/pydoc.vim.git'
+        Bundle 'git://github.com/fs111/pydoc.vim.git'
     " Perl
         Bundle 'git://github.com/petdance/vim-perl.git'
     " Ruby/Rails
