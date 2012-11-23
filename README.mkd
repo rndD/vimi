@@ -1,18 +1,7 @@
 # Vimi
 
-Vim miripiruni's bundle
+fork of Vim miripiruni's bundle
 
-Please address bugs and your suggestions to [Issues](http://github.com/miripiruni/vimi/issues).
-
-Environment
-------------
-
-Recommend:
-
-* Mac OS X 10.6.8
-* [iTerm2](http://www.iterm2.com/#/section/home)
-* [Solarized](https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors)
-* [Vim](http://vim.org/)
 
 
 How to install Vimi
@@ -21,7 +10,7 @@ How to install Vimi
 Just copy to your console:
 
 ```
-$ git clone git://github.com/miripiruni/vimi.git ~/.vimi && cd ~/.vimi && make
+$ git clone git://github.com/rndD/vimi.git ~/.vimi && cd ~/.vimi && make
 ```
 
 
