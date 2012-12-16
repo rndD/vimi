@@ -60,7 +60,8 @@
         Bundle 'git://github.com/hokaccha/vim-html5validator.git'
         "Bundle 'git://github.com/tyru/operator-html-escape.vim.git'
         Bundle 'git://github.com/tpope/vim-haml.git'
-        Bundle 'git://github.com/gregsexton/MatchTag.git'
+        "Bundle 'git://github.com/gregsexton/MatchTag.git'
+        Bundle 'git://github.com/Valloric/MatchTagAlways.git'
     " CSS/LESS
         Bundle 'git://github.com/hail2u/vim-css3-syntax.git'
         Bundle 'git://github.com/ap/vim-css-color.git'
@@ -275,8 +276,8 @@
         set fillchars="fold: "  " remove the extrafills --------
 
     " Не показывать парную скобку
-        let loaded_matchparen=1 " перестает прыгать на парную скобку, показывая где она. +100 к скорости
-        set noshowmatch " Не показывать парные <> в HTML
+        "let loaded_matchparen=1 " перестает прыгать на парную скобку, показывая где она. +100 к скорости
+        "set noshowmatch " Не показывать парные <> в HTML
 
 
 
@@ -398,19 +399,19 @@
 
     " Disable <Arrow keys>
         " Warning: nightmare mode!
-        inoremap <Up> <NOP>
-        inoremap <Down> <NOP>
-        inoremap <Left> <NOP>
-        inoremap <Right> <NOP>
-        noremap <Up> <NOP>
-        noremap <Down> <NOP>
-        noremap <Left> <NOP>
-        noremap <Right> <NOP>
-        " Позволяем передвигаться с помощью hjkl в Insert mode зажав <Ctrl>
-        imap <C-h> <C-o>h
-        imap <C-j> <C-o>j
-        imap <C-k> <C-o>k
-        imap <C-l> <C-o>l
+        "inoremap <Up> <NOP>
+        "inoremap <Down> <NOP>
+        "inoremap <Left> <NOP>
+        "inoremap <Right> <NOP>
+        "noremap <Up> <NOP>
+        "noremap <Down> <NOP>
+        "noremap <Left> <NOP>
+        "noremap <Right> <NOP>
+        "" Позволяем передвигаться с помощью hjkl в Insert mode зажав <Ctrl>
+        "imap <C-h> <C-o>h
+        "imap <C-j> <C-o>j
+        "imap <C-k> <C-o>k
+        "imap <C-l> <C-o>l
 
     " Переключение по сплитам
         nmap <C-h> <C-W>h
