@@ -30,7 +30,7 @@
         "Bundle 'git://github.com/int3/vim-taglist-plus.git'
         Bundle 'git://github.com/vim-scripts/IndexedSearch.git'
         "Bundle 'git://github.com/rphillips/vim-zoomwin.git'
-        Bundle 'git://github.com/mattn/zencoding-vim.git'
+        "Bundle 'git://github.com/mattn/zencoding-vim.git'
         Bundle 'git://github.com/vim-scripts/UltiSnips.git'
         "Bundle 'git://github.com/msanders/snipmate.vim.git'
         "Bundle 'git://github.com/miripiruni/vimi-snippets.git'
