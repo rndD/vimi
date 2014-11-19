@@ -24,9 +24,6 @@
     " Interface
         Bundle 'git://github.com/altercation/vim-colors-solarized.git'
         Bundle 'git://github.com/scrooloose/nerdtree.git'
-        "Bundle 'git://github.com/wincent/Command-T.git'
-        "Bundle 'git://github.com/vim-scripts/taglist.vim.git'
-        " depends: http://ctags.sourceforge.net/
         "Bundle 'git://github.com/int3/vim-taglist-plus.git'
         Bundle 'git://github.com/vim-scripts/IndexedSearch.git'
         "Bundle 'git://github.com/rphillips/vim-zoomwin.git'
@@ -48,20 +45,13 @@
         Bundle 'git://github.com/sjl/splice.vim.git'
         "Bundle 'git://github.com/chrismetcalf/vim-yankring.git'
         "Bundle 'git://github.com/slack/vim-fuzzyfinder.git'
-        Bundle 'git://github.com/vim-scripts/vimwiki.git'
         Bundle 'git://github.com/scrooloose/syntastic.git'
         "Bundle 'git://github.com/vim-scripts/TaskList.vim.git'
-    " Lua
-        "Bundle 'git://github.com/vim-scripts/lua.vim.git'
-        "Bundle 'git://github.com/rkowal/Lua-Omni-Vim-Completion.git'
-        "Bundle 'git://github.com/xolox/vim-lua-ftplugin.git'
-        "Bundle 'git://github.com/xolox/vim-lua-inspect.git'
+ 
     " HTML/HAML
         Bundle 'git://github.com/othree/html5.vim.git'
         Bundle 'git://github.com/hokaccha/vim-html5validator.git'
-        "Bundle 'git://github.com/tyru/operator-html-escape.vim.git'
         Bundle 'git://github.com/tpope/vim-haml.git'
-        "Bundle 'git://github.com/gregsexton/MatchTag.git'
         Bundle 'git://github.com/Valloric/MatchTagAlways.git'
     " CSS/LESS
         Bundle 'git://github.com/hail2u/vim-css3-syntax.git'
@@ -78,17 +68,12 @@
         Bundle 'git://github.com/heavenshell/vim-jsdoc.git'
     " JSON
         Bundle 'git://github.com/leshill/vim-json.git'
-    " PHP
-        "Bundle 'git://github.com/vim-scripts/php.vim--Garvin.git'
-        "Bundle 'git://github.com/2072/PHP-Indenting-for-VIm.git'
     " Python/Django
         Bundle 'git://github.com/fs111/pydoc.vim.git'
     " Perl
         Bundle 'git://github.com/petdance/vim-perl.git'
     " Ruby/Rails
         Bundle 'git://github.com/vim-ruby/vim-ruby.git'
-        Bundle 'git://github.com/tpope/vim-rails.git'
-        Bundle 'git://github.com/tpope/vim-endwise.git'
     " Jade
         Bundle 'git://github.com/digitaltoad/vim-jade.git'
     " Stylus
@@ -600,9 +585,6 @@
             au VimResized * exe "normal! \<c-w>="
 
 
-
-
-
 " File specific
     autocmd BufNewFile *.py 0r ~/.vimi/templates/template.py
     autocmd BufNewFile *.xml 0r ~/.vimi/templates/template.xml
@@ -636,34 +618,15 @@
     " NERDTree
         nmap <Bs> :NERDTreeToggle<CR>
         let NERDTreeShowBookmarks=1
-        let NERDTreeChDirMode=2
-        let NERDTreeQuitOnOpen=1
         let NERDTreeShowHidden=1
-        let NERDTreeKeepTreeInNewTab=0
         let NERDTreeMinimalUI=1 " Disables display of the 'Bookmarks' label and 'Press ? for help' text.
         let NERDTreeDirArrows=1 " Tells the NERD tree to use arrows instead of + ~ chars when displaying directories.
         let NERDTreeBookmarksFile= $HOME . '/.vim/.NERDTreeBookmarks'
-
-    " Zen Coding
-        let g:user_zen_settings = {
-          \  'php' : {
-          \    'extends' : 'html',
-          \    'filters' : 'c',
-          \  },
-          \  'xml' : {
-          \    'extends' : 'html',
-          \  },
-          \  'haml' : {
-          \    'extends' : 'html',
-          \  },
-          \}
 
     " UltiSnips
         let g:UltiSnipsExpandTrigger="<tab>"
         let g:UltiSnipsJumpForwardTrigger="<tab>"
         let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-    " VimWiki
-        let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/'}]
-    " JSdoc
+        
+    " JSDoc
 	nmap <silent> <C-d> <Plug>(jsdoc)
