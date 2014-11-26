@@ -1,83 +1,109 @@
 "=============================================================================
 " Description: form of Vimi bundle .vimrc
-" Author: Vyacheslav Oliyanchuk <miripiruni@gmail.com>
+" Author: Alex Kalmakov <st00nsa@gmail.com>
 " URL: http://github.com/rndD/vimi/
 "=============================================================================
 
-" Vundle setup
-    set nocompatible " be iMproved
-    filetype off     " required!
+" Turn off filetype plugins before bundles init
+filetype off
+" Auto installing NeoNeoBundle
+let isNpmInstalled = executable("npm")
+let iCanHazNeoBundle=1
+let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
+if !filereadable(neobundle_readme)
+    if !isNpmInstalled
+        echo "==============================================="
+        echo "Your need to install npm to enable all features"
+        echo "==============================================="
+    endif
+    echo "Installing NeoBundle.."
+    silent !mkdir -p $HOME/.vim/bundle
+    silent !git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
+    let iCanHazNeoBundle=0
+endif
 
-    set rtp+=~/.vimi/.vim/bundle/vundle/
-    call vundle#rc()
+" Call NeoBundle
+if has('vim_starting')
+    set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
+endif
 
-    " let Vundle manage Vundle
-    " required!
-    Bundle 'git://github.com/gmarik/vundle.git'
+call neobundle#begin(expand($HOME.'/.vim/bundle/'))
 
-    " My Bundles here:
-    " NOTE: comments after Bundle command are not allowed...
+" Determine make or gmake will be used for making additional deps for NeoBundles
+let g:make = 'gmake'
+if system('uname -o') =~ '^GNU/'
+    let g:make = 'make'
+endif
+
+"--------------------------------------------------
+" NeoBundles
+
+" Let NeoNeoBundle manage NeoNeoBundle
+NeoBundle 'Shougo/neobundle.vim'
+
+    " My NeoBundles here:
+    " NOTE: comments after NeoBundle command are not allowed...
     "
     " Libs
         " For FuzzyFinder:
-        "Bundle 'L9'
+        "NeoBundle 'L9'
     " Interface
-        Bundle 'git://github.com/altercation/vim-colors-solarized.git'
-        Bundle 'git://github.com/scrooloose/nerdtree.git'
-        "Bundle 'git://github.com/int3/vim-taglist-plus.git'
-        Bundle 'git://github.com/vim-scripts/IndexedSearch.git'
-        "Bundle 'git://github.com/rphillips/vim-zoomwin.git'
-        "Bundle 'git://github.com/mattn/zencoding-vim.git'
-        Bundle 'git://github.com/vim-scripts/UltiSnips.git'
-        "Bundle 'git://github.com/msanders/snipmate.vim.git'
-        "Bundle 'git://github.com/miripiruni/vimi-snippets.git'
-        Bundle 'git://github.com/mileszs/ack.vim.git'
-        Bundle 'git://github.com/scrooloose/nerdcommenter.git'
-        Bundle 'git://github.com/tpope/vim-surround.git'
-        Bundle 'git://github.com/kien/ctrlp.vim.git'
-	Bundle 'git://github.com/ervandew/supertab.git'
-        "Bundle 'git://github.com/tpope/vim-fugitive.git'
-        "Bundle 'git://github.com/tsaleh/vim-align.git'
-        "Bundle 'git://github.com/vim-scripts/bufexplorer.zip.git'
-        "Bundle 'git://github.com/vim-scripts/delimitMate.vim.git'
-        "Bundle 'git://github.com/sjl/gundo.vim.git'
-        "Bundle 'git://github.com/edsono/vim-matchit.git'
-        Bundle 'git://github.com/sjl/splice.vim.git'
-        "Bundle 'git://github.com/chrismetcalf/vim-yankring.git'
-        "Bundle 'git://github.com/slack/vim-fuzzyfinder.git'
-        Bundle 'git://github.com/scrooloose/syntastic.git'
-        "Bundle 'git://github.com/vim-scripts/TaskList.vim.git'
- 
+        NeoBundle 'git://github.com/altercation/vim-colors-solarized.git'
+        NeoBundle 'git://github.com/scrooloose/nerdtree.git'
+        "NeoBundle 'git://github.com/int3/vim-taglist-plus.git'
+        NeoBundle 'git://github.com/vim-scripts/IndexedSearch.git'
+        "NeoBundle 'git://github.com/rphillips/vim-zoomwin.git'
+        "NeoBundle 'git://github.com/mattn/zencoding-vim.git'
+        NeoBundle 'git://github.com/vim-scripts/UltiSnips.git'
+        "NeoBundle 'git://github.com/msanders/snipmate.vim.git'
+        "NeoBundle 'git://github.com/miripiruni/vimi-snippets.git'
+        NeoBundle 'git://github.com/mileszs/ack.vim.git'
+        NeoBundle 'git://github.com/scrooloose/nerdcommenter.git'
+        NeoBundle 'git://github.com/tpope/vim-surround.git'
+        NeoBundle 'git://github.com/kien/ctrlp.vim.git'
+        NeoBundle 'git://github.com/ervandew/supertab.git'
+        "NeoBundle 'git://github.com/tpope/vim-fugitive.git'
+        "NeoBundle 'git://github.com/tsaleh/vim-align.git'
+        "NeoBundle 'git://github.com/vim-scripts/bufexplorer.zip.git'
+        "NeoBundle 'git://github.com/vim-scripts/delimitMate.vim.git'
+        "NeoBundle 'git://github.com/sjl/gundo.vim.git'
+        "NeoBundle 'git://github.com/edsono/vim-matchit.git'
+        NeoBundle 'git://github.com/sjl/splice.vim.git'
+        "NeoBundle 'git://github.com/chrismetcalf/vim-yankring.git'
+        "NeoBundle 'git://github.com/slack/vim-fuzzyfinder.git'
+        NeoBundle 'git://github.com/scrooloose/syntastic.git'
+        "NeoBundle 'git://github.com/vim-scripts/TaskList.vim.git'
+
     " HTML/HAML
-        Bundle 'git://github.com/othree/html5.vim.git'
-        Bundle 'git://github.com/hokaccha/vim-html5validator.git'
-        Bundle 'git://github.com/tpope/vim-haml.git'
-        Bundle 'git://github.com/Valloric/MatchTagAlways.git'
+        NeoBundle 'git://github.com/othree/html5.vim.git'
+        NeoBundle 'git://github.com/hokaccha/vim-html5validator.git'
+        NeoBundle 'git://github.com/tpope/vim-haml.git'
+        NeoBundle 'git://github.com/Valloric/MatchTagAlways.git'
     " CSS/LESS
-        Bundle 'git://github.com/hail2u/vim-css3-syntax.git'
-        Bundle 'git://github.com/ap/vim-css-color.git'
-        Bundle 'git://github.com/groenewege/vim-less.git'
-        Bundle 'git://github.com/miripiruni/vim-better-css-indent.git'
-        Bundle 'git://github.com/miripiruni/CSScomb-for-Vim.git'
+        NeoBundle 'git://github.com/hail2u/vim-css3-syntax.git'
+        NeoBundle 'git://github.com/ap/vim-css-color.git'
+        NeoBundle 'git://github.com/groenewege/vim-less.git'
+        NeoBundle 'git://github.com/miripiruni/vim-better-css-indent.git'
+        NeoBundle 'git://github.com/miripiruni/CSScomb-for-Vim.git'
     " JavaScript
-        Bundle 'git://github.com/pangloss/vim-javascript.git'
-        Bundle 'git://github.com/itspriddle/vim-jquery.git'
-        Bundle 'git://github.com/kchmck/vim-coffee-script.git'
-        Bundle 'git://github.com/walm/jshint.vim.git'
-        Bundle 'git://github.com/myhere/vim-nodejs-complete.git'
-        Bundle 'git://github.com/heavenshell/vim-jsdoc.git'
+        NeoBundle 'git://github.com/pangloss/vim-javascript.git'
+        NeoBundle 'git://github.com/itspriddle/vim-jquery.git'
+        NeoBundle 'git://github.com/kchmck/vim-coffee-script.git'
+        NeoBundle 'git://github.com/walm/jshint.vim.git'
+        NeoBundle 'git://github.com/myhere/vim-nodejs-complete.git'
+        NeoBundle 'git://github.com/heavenshell/vim-jsdoc.git'
     " JSON
-        Bundle 'git://github.com/leshill/vim-json.git'
+        NeoBundle 'git://github.com/leshill/vim-json.git'
     " Python/Django
-        Bundle 'git://github.com/fs111/pydoc.vim.git'
+        NeoBundle 'git://github.com/fs111/pydoc.vim.git'
     " Perl
-        Bundle 'git://github.com/petdance/vim-perl.git'
+        NeoBundle 'git://github.com/petdance/vim-perl.git'
     " Ruby/Rails
-        Bundle 'git://github.com/vim-ruby/vim-ruby.git'
+        NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
     " Jade
-        Bundle 'git://github.com/digitaltoad/vim-jade.git'
+        NeoBundle 'git://github.com/digitaltoad/vim-jade.git'
     " Stylus
-        Bundle 'git://github.com/wavded/vim-stylus.git'
+        NeoBundle 'git://github.com/wavded/vim-stylus.git'
 
     filetype plugin indent on     " required!
     " Brief help
@@ -631,7 +657,7 @@
     " Tern
     " Provide smart autocomplete results for javascript, and some usefull commands
     if has("python")
-        Bundle 'marijnh/tern_for_vim'
+        NeoBundle 'marijnh/tern_for_vim'
         " install node dependencies for tern
         if isNpmInstalled && isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
             silent ! echo 'Installing tern' && npm --prefix ~/.vim/bundle/tern_for_vim install

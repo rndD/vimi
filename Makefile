@@ -10,8 +10,8 @@ vimi: echostart bundle-install
 echostart:
 	@echo "Start installing Vimi...\n"
 
-bundle-install: symlinks vundle
-	-vim +BundleInstall +quitall
+bundle-install: symlinks
+	vim +NeoBundleInstall +qall
 
 symlinks: backup
 	@ln -s $(VIMI_DIR)/$(VIMRC) ~/$(VIMRC) && \
@@ -37,11 +37,3 @@ remove-prev-backup:
 
 	@test ! -e ~/$(VIMRC)$(BACKUP_PREFIX) || \
 	rm -f ~/$(VIMRC)$(BACKUP_PREFIX)
-
-vundle:
-	@test ! -e $(VIMI_DIR)/$(DOT_VIM)/$(VUNDLE_DIR) || \
-	rm -rf $(VIMI_DIR)/$(DOT_VIM)/$(VUNDLE_DIR)
-
-	@echo "Clone Vundle from github.com..."
-	@git clone git://github.com/gmarik/vundle.git $(VIMI_DIR)/$(DOT_VIM)/$(VUNDLE_DIR) > /dev/null
-	@echo "Done.\n"
