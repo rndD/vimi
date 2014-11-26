@@ -587,8 +587,6 @@
 
 " File specific
     autocmd BufNewFile *.py 0r ~/.vimi/templates/template.py
-    autocmd BufNewFile *.xml 0r ~/.vimi/templates/template.xml
-    autocmd BufNewFile *.xsl 0r ~/.vimi/templates/template.xsl
     autocmd BufNewFile *.jade 0r ~/.vimi/templates/template.jade
     autocmd BufNewFile *.html 0r ~/.vimi/templates/template.html
 
@@ -617,16 +615,25 @@
 
     " NERDTree
         nmap <Bs> :NERDTreeToggle<CR>
-        let NERDTreeShowBookmarks=1
         let NERDTreeShowHidden=1
         let NERDTreeMinimalUI=1 " Disables display of the 'Bookmarks' label and 'Press ? for help' text.
         let NERDTreeDirArrows=1 " Tells the NERD tree to use arrows instead of + ~ chars when displaying directories.
-        let NERDTreeBookmarksFile= $HOME . '/.vim/.NERDTreeBookmarks'
+        nmap <silent> <leader>f :NERDTreeFind<CR>
 
     " UltiSnips
         let g:UltiSnipsExpandTrigger="<tab>"
         let g:UltiSnipsJumpForwardTrigger="<tab>"
         let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-        
+
     " JSDoc
-	nmap <silent> <C-d> <Plug>(jsdoc)
+    nmap <silent> <C-d> <Plug>(jsdoc)
+
+    " Tern
+    " Provide smart autocomplete results for javascript, and some usefull commands
+    if has("python")
+        Bundle 'marijnh/tern_for_vim'
+        " install node dependencies for tern
+        if isNpmInstalled && isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
+            silent ! echo 'Installing tern' && npm --prefix ~/.vim/bundle/tern_for_vim install
+        endif
+    endif
