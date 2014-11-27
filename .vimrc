@@ -92,6 +92,17 @@ NeoBundle 'Shougo/neobundle.vim'
         NeoBundle 'git://github.com/walm/jshint.vim.git'
         NeoBundle 'git://github.com/myhere/vim-nodejs-complete.git'
         NeoBundle 'git://github.com/heavenshell/vim-jsdoc.git'
+
+        " Tern
+            " Provide smart autocomplete results for javascript, and some usefull commands
+            if has("python")
+                NeoBundle 'marijnh/tern_for_vim'
+                " install node dependencies for tern
+                if isNpmInstalled && isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
+                    silent ! echo 'Installing tern' && npm --prefix ~/.vim/bundle/tern_for_vim install
+                endif
+            endif
+
     " JSON
         NeoBundle 'git://github.com/leshill/vim-json.git'
     " Python/Django
@@ -105,15 +116,16 @@ NeoBundle 'Shougo/neobundle.vim'
     " Stylus
         NeoBundle 'git://github.com/wavded/vim-stylus.git'
 
-    filetype plugin indent on     " required!
-    " Brief help
-    " :BundleList          - list configured bundles
-    " :BundleInstall(!)    - install(update) bundles
-    " :BundleSearch(!) foo - search(or refresh cache first) for foo
-    " :BundleClean(!)      - confirm(or auto-ap prove) removal of unused bundles
-    " see :h vundle for more details or wiki for FAQ
+call neobundle#end()
 
+" Enable Indent in plugins
+" filetype plugin indent on
+" Enable syntax highlighting
+syntax on
 
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 
 " Interface
@@ -654,12 +666,4 @@ NeoBundle 'Shougo/neobundle.vim'
     " JSDoc
     nmap <silent> <C-d> <Plug>(jsdoc)
 
-    " Tern
-    " Provide smart autocomplete results for javascript, and some usefull commands
-    if has("python")
-        NeoBundle 'marijnh/tern_for_vim'
-        " install node dependencies for tern
-        if isNpmInstalled && isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
-            silent ! echo 'Installing tern' && npm --prefix ~/.vim/bundle/tern_for_vim install
-        endif
-    endif
+    
