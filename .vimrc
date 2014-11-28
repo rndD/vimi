@@ -92,6 +92,7 @@ NeoBundle 'Shougo/neobundle.vim'
         NeoBundle 'git://github.com/walm/jshint.vim.git'
         NeoBundle 'git://github.com/myhere/vim-nodejs-complete.git'
         NeoBundle 'git://github.com/heavenshell/vim-jsdoc.git'
+        NeoBundle 'mayton/bunin.vim'
 
         " Tern
             " Provide smart autocomplete results for javascript, and some usefull commands
@@ -666,4 +667,5 @@ NeoBundleCheck
     " JSDoc
     nmap <silent> <C-d> <Plug>(jsdoc)
 
-    
+    " Bunin
+    map <C-I> :BuninEdit<CR>
