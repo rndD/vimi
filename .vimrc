@@ -116,6 +116,8 @@ NeoBundle 'Shougo/neobundle.vim'
         NeoBundle 'git://github.com/digitaltoad/vim-jade.git'
     " Stylus
         NeoBundle 'git://github.com/wavded/vim-stylus.git'
+    " GO
+        NeoBundle 'fatih/vim-go'
 
 call neobundle#end()
 
