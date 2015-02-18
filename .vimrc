@@ -633,6 +633,7 @@ NeoBundleCheck
 
     autocmd FileType jade setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
+    autocmd FileType make setlocal noexpandtab
 
 
 " Плагины
